@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <title>Billing Advice</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #ebf0f1; padding: 40px; }
+        .bill-card { background: white; max-width: 500px; margin: auto; padding: 40px; border-radius: 4px; box-shadow: 0 0 20px rgba(0,0,0,0.1); border-top: 8px solid #2c3e50; }
+        .line { display: flex; justify-content: space-between; margin: 10px 0; border-bottom: 1px dashed #ccc; padding-bottom: 5px; }
+        .total { font-size: 1.5rem; font-weight: bold; color: #e74c3c; margin-top: 20px; text-align: right; }
+        input { padding: 10px; border-radius: 4px; border: 1px solid #ccc; }
+        button { padding: 10px 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <input type="text" id="tokenSearch" placeholder="Enter Token #">
+        <button onclick="fetchBillingDetails()">Generate Bill</button>
+    </div>
+
+    <div class="bill-card" id="invoice">
+        <div style="text-align: center;"><h3>CLINIC BILLING</h3></div>
+        <div class="line"><span>Token:</span> <span id="dispToken">#--</span></div>
+        <div class="line"><span>Status:</span> <span id="dispMeds">Pending</span></div>
+        <div class="total">Total: <span id="dispTotal">$0.00</span></div>
+        <button style="width:100%; margin-top:20px;" onclick="window.print()">Print Receipt</button>
+    </div>
+
+    <script src="js/firebase.js"></script>
+    <script src="js/billing.js"></script>
+</body>
+</html>

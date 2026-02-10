@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <meta charset="UTF-8">
+    <title>Prescription Entry | Clinic System</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #fdfdfd; padding: 20px; display: flex; }
+        .sidebar { width: 250px; height: 100vh; background: #2c3e50; color: white; padding: 20px; position: fixed; left: 0; top: 0; }
+        .sidebar a { display: block; color: white; text-decoration: none; padding: 15px; border-radius: 4px; margin-bottom: 5px; }
+        .sidebar a:hover { background: #34495e; }
+        .rx-container { max-width: 600px; margin: 40px auto 40px 300px; background: #fff; border: 2px solid #3498db; border-radius: 10px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .rx-header { border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-bottom: 20px; text-align: center; color: #3498db; }
+        .input-group { margin-bottom: 20px; }
+        label { font-weight: bold; display: block; margin-bottom: 5px; color: #333; }
+        input[type="number"] { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
+        textarea { width: 100%; border: 1px solid #eee; background: #f9f9f9; padding: 15px; font-size: 1.1rem; resize: vertical; border-radius: 8px; box-sizing: border-box; min-height: 200px; }
+        .btn-submit { background: #3498db; color: white; border: none; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; margin-top: 15px; font-size: 1.1rem; }
+        .btn-submit:hover { background: #2980b9; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3>Clinic Menu</h3>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="patients.html">Patients</a>
+        <a href="appointments.html">Token System</a>
+        <a href="doctors.html">Doctor Panel</a>
+        <a href="prescriptions.html" style="background: #34495e;">Prescription</a>
+        <a href="billing.html">Billing</a>
+    </div>
+
+    <div class="rx-container">
+        <div class="rx-header">
+            <h2>PRESCRIPTION FORM</h2>
+        </div>
+
+        <div class="input-group">
+            <label for="tokenInput">Patient Token Number:</label>
+            <input type="number" id="tokenInput" placeholder="Enter Token # (e.g. 1, 2, 3)">
+        </div>
+
+        <div class="input-group">
+            <label for="doctorNotes">Diagnosis & Medication:</label>
+            <textarea id="doctorNotes" placeholder="Type clinical notes and medicines here..."></textarea>
+        </div>
+
+        <button class="btn-submit" onclick="submitPrescription()">Submit to Reception</button>
+    </div>
+
+    <script src="js/firebase.js"></script>
+    <script src="js/prescriptions.js"></script>
+</body>
+</html>
